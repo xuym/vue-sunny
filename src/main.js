@@ -6,6 +6,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import App from './App'
 import router from './router'
+import vuex from './store'
+
+Vue.prototype.$store = vuex
 
 Vue.use(ElementUI)
 
