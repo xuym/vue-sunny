@@ -48,6 +48,7 @@
                 this.$message.error('用户名或密码错误')
               }else{
                 this.$store.commit('login', resp.result.data)
+                sessionStorage.setItem('accessToken', resp.result.data)
                 vm.$router.push('/hello')
               }
             }).catch(error => {

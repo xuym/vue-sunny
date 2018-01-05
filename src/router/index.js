@@ -6,7 +6,7 @@ import Login from '@/components/Login'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -30,3 +30,13 @@ export default new Router({
     }
   ]
 })
+router.beforeEach((to, from, next) => {
+  console.log(sessionStorage.getItem('accessToken'))
+  if(to.path.indexOf('login') == -1 && to.path.indexOf('regist') == -1
+    && !sessionStorage.getItem('accessToken')){
+    next('/login')
+  }else{
+    next()
+  }
+})
+export default router
